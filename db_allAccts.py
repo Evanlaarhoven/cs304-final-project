@@ -1,0 +1,21 @@
+## Emily Van Laarhoven and Marissa Okoli
+## db_allAccts.py
+## Last modified: 5/12/2017
+## Get list of all uids and all names from account
+
+import dbconn2
+import MySQLdb
+import os
+from oddjobs_dsn import DSN
+
+## global variables
+DATABASE = 'oddjobs_db'
+DEBUG = False
+
+def list_users(cursor):
+    '''return DICTIONARY of all account uids and names for search account'''
+    q1 = "select uid,nm,active from account;"
+    cursor.execute(q1)
+    query_list = cursor.fetchall()
+    all_accounts = {acct['uid']:acct['nm'] for acct in query_list if int(acct['active'])==1}
+    return all_accounts
