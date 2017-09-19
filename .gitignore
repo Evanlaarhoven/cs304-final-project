@@ -1,5 +1,8 @@
 .DS_Store
 
+# emacs saved copies
+*~
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
